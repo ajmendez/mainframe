@@ -19,7 +19,7 @@
 #
 SSH_ENV="$HOME/.ssh/environment"
 BASH_MAIN="${BASH_CONFIG}/.bashrc_"
-BASH_CONFIGS=("main" "aliases" "`hostname -s`" "python" "idl")
+BASH_CONFIGS=("main" "aliases" "$HOST" "python" "idl")
 
 
 echo -n "Loading config: "
