@@ -2,7 +2,7 @@
 # 2014.09 Mendez
 
 # EPD -- Enthought Python Distribution
-[!"${EPD}"] && export EPD=${HOME}/Library/EPD/2.7-32
+[ !"${EPD}" ] && export EPD=${HOME}/Library/EPD/2.7-32
 if [ -d "${epd}" ]; then
     export PATH="${epd}/bin:${PATH}"
 	export MKL_NUM_THREADS=1
