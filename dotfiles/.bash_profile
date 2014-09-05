@@ -1,18 +1,8 @@
 #!/bin/bash
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# [2010-05-31] : Mendez
+# ~/.bashrc
 
 
-# New Terminal:
-#   Runs .bash_profile
-# New Bash:
-#   Runs .bashrc
-# New XTerm:
-#   Runs .bashrc
-
-[ -z "$PS1" ] && return
-
-export DOTFILES=$HOME/etc/mainframe/
-
-source $DOTFILES/.bash_aliases
-source $DOTFILES/.bashrc
+# At Login, make sure that all the pretty things are setup.
+if [ -f ~/.bashrc ]; then
+   source ~/.bashrc
+fi

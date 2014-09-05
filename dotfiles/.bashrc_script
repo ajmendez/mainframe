@@ -1,0 +1,5 @@
+#!/bin/bash
+# 2014.09 Mendez
+# run for scripts
+
+source ${BASH_CONFIG}/.bashrc_python

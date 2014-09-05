@@ -1,0 +1,33 @@
+#!/bin/bash
+# Mendez 2014.09
+
+
+# Information
+# -----------
+# First we setup bash, and then we load some specifc things:
+#  .bashrc_`hostname` -- specific things for each computer
+#  .bashrc_alias -- Aliased functions and variables
+#  .bashrc_idl -- IDL Configuration
+#  .bashrc_python -- Python Configuration
+
+# Configuration
+# -------------
+#
+# SSH_CONFIG : Location of the enviroment file which stores the pid of the agent
+# BASH_MAIN : Base file name for each file
+# BASH_CONFIGS : An array of files to be loaded
+#
+SSH_ENV="$HOME/.ssh/environment"
+BASH_MAIN="${BASH_CONFIG}/.bashrc_"
+BASH_CONFIGS=("main" "aliases" "`hostname -s`" "python" "idl")
+
+
+echo -n "Loading config: "
+for bashfile in "${BASH_CONFIGS[@]}"; do
+    # echo "${BASH_MAIN}${bashfile}"
+    if [ -r "${BASH_MAIN}${bashfile}" ]; then
+        source "${BASH_MAIN}${bashfile}"
+        echo -n "[${bashfile}] "
+    fi
+done
+echo

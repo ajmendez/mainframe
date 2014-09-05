@@ -1,0 +1,94 @@
+#!/bin/bash
+# .bashrc_main -- Setup bass, less, grep, prompt, and readys some default variables
+# [2014.09] Mendez
+
+# System Defaults
+export EDITORS="emacs -nw" # Default to NoWindow emacs
+export RSYNC_RSH="ssh" # Default to using ssh to rsync
+
+# Ignore Duplicate and Sucessive Entries in History
+export HISTSIZE="10000" # Extra long history for me
+export HISTCONTROL="ignoreboth" # ignore lines that start with space and duplicate entries
+export HISTIGNORE='&:exit:bg:fg:history' # drop some commands that are not useful
+export HISTTIMEFORMAT='%F %T ' # add times to the history output
+shopt -s cmdhist # add commands to the thistory
+
+# Make bash a bit nicer.
+shopt -s checkwinsize # check the window size after each command and update
+shopt -s nocaseglob # Ignore case in glob
+shopt -s extglob # excludes you to do !(b*) to negative glob find. things that are b____
+
+FIGNORE='~:.o:.bak:.swp'    # also see "shopt -u force_fignore"
+shopt -u force_fignore     # don't complete w/ <TAB> iff other files available
+
+shopt -s checkhash # checks if command exists in hash table.
+shopt -s cdspell # checks the spelling of cd xxx commands
+shopt -s no_empty_cmd_completion #only available in bash 2.04 or later!
+
+# Requires bash-4.2
+if [[ "${BASH_VERINFO}" -ge "4" ]]; then
+	shopt -s globstar # enables ** for recursive searching
+	shopt -s autocd # allows one to cd into directories just by directory names
+fi
+
+
+# Some nice ssh stuff
+export SSH_ALL_SCP_STATS=1
+
+
+# Some nice things for Less / Grep
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+export LESS="-EQRXi"
+# Less colors
+# export LESS_TERMCAP_mb=$'\E[01;31m'
+# export LESS_TERMCAP_md=$'\E[01;31m'
+# export LESS_TERMCAP_me=$'\E[0m'
+# export LESS_TERMCAP_se=$'\E[0m'
+# export LESS_TERMCAP_so=$'\E[01;44;33m'
+# export LESS_TERMCAP_ue=$'\E[0m'
+# export LESS_TERMCAP_us=$'\E[01;32m'
+
+
+man() {
+    env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
+}
+
+
+
+export GREP_OPTIONS="--color=auto" 
+export GREP_COLOR="1;32"
+
+
+
+
+
+export BIN="${HOME}/bin"
+export PREFIX="${HOME}/.local"
+
+# PATHs and the sort.
+[ -d "${PREFIX}/bin" ] && export PATH="${PREFIX}/bin:${PATH}"
+[ -d "${BIN}" ] && export PATH="${BIN}:${PATH}"
+
+
+
+# Bash completion
+# Check for recent enough version of bash.
+bash=${BASH_VERSION%.*}; bmajor=${bash%.*}; bminor=${bash#*.}
+if [ $bmajor -gt 4 ] || [ $bmajor -eq 4 -a $bminor -ge 1 ]; then
+    if shopt -q progcomp && [ -r ${PREFIX}/share/bash-completion/bash_completion ]; then
+    	. ${PREFIX}/share/bash-completion/bash_completion
+    fi
+fi
+unset bash bmajor bminor
+
+
+
+

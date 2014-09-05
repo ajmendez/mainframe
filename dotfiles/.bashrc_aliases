@@ -22,6 +22,7 @@ alias nano='nano -w'
 alias xgterm='xgterm -sb'
 alias xterm='xterm -fg white -bg black'
 alias enscript='enscript -r -H -f "Times-Roman8"'
+alias gv='gv -w'
 
 #------------------------------------------------------------------------------#
 # I hate all of this typing:
@@ -32,6 +33,9 @@ alias big='ls -ohS'
 alias new='ls -oht'
 alias p='python'
 alias ip='ipython'
+alias notebook="ipython notebook --pprint --automagic --pylab=inline --color-info"
+
+
 # if [[ $HOSTMAE == "offshore.ucsd.edu" ]]; then
 #   alias emacs='~/tmp/emacs/emacs-23.2/src/emacs'
 #   alias emacsclient='~/tmp/emacs/emacs-23.2/lib-src/emacsclient'
