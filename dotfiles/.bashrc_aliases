@@ -65,9 +65,8 @@ alias p='python'
 alias ip='ipython'
 alias notebook="ipython notebook --pprint --automagic --pylab=inline --color-info"
 alias o='open'
-alias m='emacs -nw' # default to something sane
-[ `which mate 2>/dev/null` ] && alias m='mate' # or amazing 
-
+[ ! `which mate 2>/dev/null` ] && alias mate='emacs -nw'
+alias m='mate'
 
 
 # if [[ $HOSTMAE == "offshore.ucsd.edu" ]]; then
