@@ -1,0 +1,36 @@
+[user]
+	name = Alexander Mendez
+	email = bluespace@gmail.com
+[alias]
+    xxx="!sh -c 'git commit -m $0 | grep deletions | pytweet.py'"
+    cd = "!d=\"$($(brew --prefix coreutils)/libexec/gnubin/date  -d \"$1\")\" && shift && \
+        git diff-index --cached --quiet HEAD --ignore-submodules -- && \
+        GIT_COMMITTER_DATE=\"$d\" git commit --amend -C HEAD --date \"$d\"" \
+        || echo >&2 "error: date change failed: index not clean!"
+[github]
+	user = ajmendez # Removed token!?!??!
+[color]
+	ui = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[core]
+	autocflf = true
+[branch]
+	autosetupmerge = true
+[push]
+	default = matching
+[pull]
+  default = matching
+[init]
+  # templatedir = ~/Dropbox/etc/git/.git_template

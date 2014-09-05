@@ -15,6 +15,37 @@ fi
 
 
 
+# might work on linux -- not osx
+# which () {
+#   (alias; declare -f) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
+# }
+# export -f which
+
+
+
+# Some nice Functions
+function which {
+  # Overload which with a better version which finds aliased commands
+  which_out=`/usr/bin/which $@`;
+  if [ ! -z "$which_out" ]; then
+    echo "$which_out";
+  else
+    type "$@";
+  fi
+} 
+
+
+function portopen {
+  # Who is holding this port open. example: $ portopen 2000
+	sudo lsof -P -i ":${1}"
+}
+
+function fileopen {
+  # Who is holding this file/directory open. example: $ fileopen /etc
+	sudo lsof "${1}"
+}
+
+
 #------------------------------------------------------------------------------#
 # Basic Unix Niceities
 alias env-update='source ~/.bash_profile'
@@ -22,7 +53,6 @@ alias nano='nano -w'
 alias xgterm='xgterm -sb'
 alias xterm='xterm -fg white -bg black'
 alias enscript='enscript -r -H -f "Times-Roman8"'
-alias gv='gv -w'
 
 #------------------------------------------------------------------------------#
 # I hate all of this typing:
@@ -34,6 +64,10 @@ alias new='ls -oht'
 alias p='python'
 alias ip='ipython'
 alias notebook="ipython notebook --pprint --automagic --pylab=inline --color-info"
+alias o='open'
+alias m='mate'
+[ `which mate` 2>/dev/null ] && alias m='mate'
+
 
 
 # if [[ $HOSTMAE == "offshore.ucsd.edu" ]]; then
@@ -68,8 +102,18 @@ emacsro() {
 #alias e='emacs -nw'
 alias e='emacsclient -n -a emacs'
 alias edl='emacsclient -nw -a idl --eval "(idlwave-shell ''quick)"'
-alias svndiff='svn diff --diff-cmd 'colordiff' -x "-y --width=$COLUMNS"'
-alias gw='gv --watch'
+alias svndiff='svn diff --diff-cmd "colordiff" -x "-y --width=$COLUMNS"'
+alias gw='gv --watch '
+
+
+
+alias netstat_osx="sudo lsof -i -P"
+alias path='echo $PATH|pyline "\"\n\".join(line.split(\":\"))"'
+alias idlpath='echo $IDL_PATH|pyline "\"\n\".join(line.split(\":\"))"'
+alias pypath='echo $PYTHONPATH|pyline "\"\n\".join(line.split(\":\"))"'
+alias diffc='colordiff -y --width=${COLUMNS}'
+alias mdate='date +%Y-%m-%d_%H.%M.%S'
+alias sqlite3='sqlite3 -header'
 
 
 
