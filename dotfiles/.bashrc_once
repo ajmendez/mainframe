@@ -19,6 +19,7 @@
 #
 SSH_ENV="$HOME/.ssh/environment"
 BASH_MAIN="${BASH_CONFIG}/.bashrc_"
+[ ! "$HOST" ] && HOST=`hostname -s`
 BASH_CONFIGS=("main" "aliases" "$HOST" "python" "idl")
 
 
