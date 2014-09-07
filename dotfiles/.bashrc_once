@@ -19,11 +19,13 @@
 #
 SSH_ENV="$HOME/.ssh/environment"
 BASH_MAIN="${BASH_CONFIG}/.bashrc_"
-[ ! "$HOST" ] && HOST=`hostname -s`
-BASH_CONFIGS=("main" "aliases" "$HOST" "python" "idl")
+H=$(hostname -s 2> /dev/null)
+[ ! "$H" ] && H=$HOST
+echo -n "$H "
+BASH_CONFIGS=("main" "aliases" "$H" "python" "idl")
 
 
-echo -n "Loading config: "
+echo -n "loading config: "
 for bashfile in "${BASH_CONFIGS[@]}"; do
     # echo "${BASH_MAIN}${bashfile}"
     if [ -r "${BASH_MAIN}${bashfile}" ]; then

@@ -9,3 +9,14 @@ export PATH=$HOME/.local/bin:$PATH
 
 export RMATE_HOST=localhost
 export RMATE_PORT=55500
+
+# add the defualt for pip
+if [ -x "$PYTHONPATH" ]; then
+    export PYTHONPATH=$PYTHONPATH:$HOME/.local/lib/python2.7/site-packages/
+else
+    export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages/
+fi
+
+export PYTHONPATH=$HOME/research/wiseredshift/pysurvey:$PYTHONPATH
+export PYTHONPATH=$HOME/research/wiseredshift/flock:$PYTHONPATH
+
