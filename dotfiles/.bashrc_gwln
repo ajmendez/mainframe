@@ -5,7 +5,14 @@
 
 export gflags_path=/home/mubdi/gflags-2.0/
 export PATH=/home/mubdi/bin:/home/mubdi/opt/epd-7.3-2/bin:$PATH
+
+
+
+export PATH=$HOME/.local/etc/mainframe/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+
+
+
 
 export RMATE_HOST=localhost
 export RMATE_PORT=55500
@@ -19,4 +26,4 @@ fi
 
 export PYTHONPATH=$HOME/research/wiseredshift/pysurvey:$PYTHONPATH
 export PYTHONPATH=$HOME/research/wiseredshift/flock:$PYTHONPATH
-
+export PATH=$HOME/research/wiseredshift/flock/bin:$PATH
