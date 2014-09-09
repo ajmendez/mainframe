@@ -65,7 +65,8 @@ alias p='python'
 alias ip='ipython'
 alias notebook="ipython notebook --pprint --automagic --pylab=inline --color-info"
 alias o='open'
-[ ! `which mate 2>/dev/null` ] && alias mate='emacs -nw'
+[ !"`which mate 2>/dev/null`" ] && alias mate='emacs -nw'  # or emacs if not
+[ !"`which rmate 2>/dev/null`" ] && alias mate='rmate'     # first set to rmate
 alias m='mate'
 
 

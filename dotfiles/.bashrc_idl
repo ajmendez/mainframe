@@ -1,0 +1,26 @@
+#!/bin/bash
+# 2014.09 Mendez
+
+
+# set the default -- can be specified earlier
+[ !"$IDL_DIR" ] && export IDL_DIR=/usr/site/idl
+
+if [ -n "$IDL_DIR" ]; then
+    export BASE_DIR=$HOME/.local/idl/
+    export IDLUTILS_DIR=$BASE_DIR/idlutils
+    export KCORRECT_DIR=$BASE_DIR/kcorrect
+    export RED_DIR=$BASE_DIR/red
+    export AMPRO_DIR=$BASE_DIR/ampro
+    export FLOCK_DIR=$HOME/research/wiseredshift/flock
+    export MANGLE_DIR=$IDLUTILS_DIR/src/mangle2.2/
+    
+    export IDL_PATH=+$IDL_DIR/lib:+$IDL_DIR/examples
+    export IDL_PATH=+$IDLUTILS_DIR/pro:+$IDLUTILS_DIR/goddard/pro:$IDL_PATH
+    export IDL_PATH=+$KCORRECT_DIR/pro:$IDL_PATH
+    export IDL_PATH=+$RED_DIR:$IDL_PATH
+    export IDL_PATH=+$AMPRO_DIR/pro:$IDL_PATH
+    export IDL_PATH=+$FLOCK_DIR/pro:$IDL_PATH
+    
+    export PATH=$IDLUTILS_DIR/bin:$PATH
+    export PATH=$PATH:$MANGLE_DIR/bin
+fi
