@@ -2,3 +2,4 @@
 if ( $?prompt ) then   # test if interactive (script or remote)
     exec bash
 endif
+

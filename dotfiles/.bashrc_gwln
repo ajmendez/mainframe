@@ -35,4 +35,6 @@ export PATH=$HOME/research/wiseredshift/flock/bin:$PATH
 if [ "$HOST" == "gwln2" ]; then
     export PATH=$HOME/.local/src/mangle2.2/bin:$PATH
 fi
-    
+
+
+alias sl='ls'

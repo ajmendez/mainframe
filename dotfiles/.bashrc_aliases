@@ -32,7 +32,7 @@ function which {
   else
     type "$@";
   fi
-} 
+}
 
 
 function portopen {
