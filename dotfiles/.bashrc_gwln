@@ -29,7 +29,7 @@ fi
 export PYTHONPATH=$HOME/research/wiseredshift/pysurvey:$PYTHONPATH
 export PYTHONPATH=$HOME/research/wiseredshift/flock:$PYTHONPATH
 export PATH=$HOME/research/wiseredshift/flock/bin:$PATH
-
+export PYTHONPATH=/home/ajmendez/tmp/pip_build/sphere:$PYTHONPATH
 
 
 if [ "$HOST" == "gwln2" ]; then

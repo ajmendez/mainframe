@@ -48,7 +48,7 @@ function fileopen {
 
 #------------------------------------------------------------------------------#
 # Basic Unix Niceities
-alias env-update='source ~/.bash_profile'
+# alias env-update='source ~/.bash_profile' # pushed to always
 alias nano='nano -w'
 alias xgterm='xgterm -sb'
 alias xterm='xterm -fg white -bg black'
