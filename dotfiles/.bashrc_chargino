@@ -1,0 +1,5 @@
+#!/bin/bash
+
+
+# added by Anaconda 2.1.0 installer
+export PATH="/Users/ajmendez/.local/anaconda/bin:$PATH"
