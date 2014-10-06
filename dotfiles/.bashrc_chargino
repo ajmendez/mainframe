@@ -2,4 +2,72 @@
 
 
 # added by Anaconda 2.1.0 installer
-export PATH="/Users/ajmendez/.local/anaconda/bin:$PATH"
+export PATH="$PREFIX/anaconda/bin:$PATH"
+
+
+DEV="$HOME/dev"
+
+export PATH="$HOME/Dropbox/bin:$PATH"
+
+
+
+
+
+# pyMendez :: the Mendez Library
+export PYTHONPATH="${HOME}/dev/pyMendez:${PYTHONPATH}"
+export PATH="${HOME}/dev/pyMendez/bin:${PATH}"
+
+# pyGPS :: my GPS librar
+export PYTHONPATH="${HOME}/dev/pyGPS/:${PYTHONPATH}"
+export PATH="${HOME}/dev/pyGPS/bin:${PATH}"
+
+
+# pySurvey :: the survey library 
+export PYTHONPATH="${HOME}/research/clustering/pySurvey/:${PYTHONPATH}"
+export PYSURVEY_FIGURE="${HOME}/research/clustering/figures/"
+
+# pyCluster :: the survey library 
+export PYTHONPATH="${HOME}/research/clustering/pyClustering/:${PYTHONPATH}"
+export PYCLUSTERING_DIR="${HOME}/research/data/clustering/"
+export PYCLUSTERING_PAPERDIR="${HOME}/research/clustering/paper/"
+export PYCLUSTERING_MASSPAPERDIR="${HOME}/research/clustering/mass/"
+
+
+
+#PYGRBL
+export PYTHONPATH="${PYTHONPATH}:${HOME}/dev/PyGRBL/"
+export PATH="${PATH}:${HOME}/dev/PyGRBL/bin"
+
+
+#PyCupid
+export PYTHONPATH="${PYTHONPATH}:${HOME}/dev/pycupid/"
+export PATH="${PATH}:${HOME}/dev/pycupid/bin"
+
+#PyReddit
+export PYTHONPATH="${PYTHONPATH}:${HOME}/dev/pyreddit/"
+export PATH="${PATH}:${HOME}/dev/pyreddit/bin"
+
+
+#Forage
+export PYTHONPATH="${PYTHONPATH}:${HOME}/dev/forage/"
+export PATH="${PATH}:${HOME}/dev/forage/bin"
+
+
+#graffito
+export PYTHONPATH="${PYTHONPATH}:${HOME}/dev/graffito/"
+export PATH="${PATH}:${HOME}/dev/graffito/bin"
+
+
+#scintillate
+export PYTHONPATH="${PYTHONPATH}:${HOME}/dev/scintillate/"
+export PATH="${PATH}:${HOME}/dev/scintillate/bin"
+
+#rumormill
+export PYTHONPATH="${PYTHONPATH}:${HOME}/dev/rumormill/"
+export PATH="${PATH}:${HOME}/dev/rumormill/bin"
+
+
+
+#vapor -- steam
+export PYTHONPATH="${PYTHONPATH}:${HOME}/dev/vapor/"
+export PATH="${PATH}:${HOME}/dev/vapor/bin"
