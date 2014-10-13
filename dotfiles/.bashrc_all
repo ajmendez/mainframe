@@ -22,7 +22,7 @@ if [ "$TERM" != "dumb" ]; then
     if [ -x /usr/bin/dircolors ]; then
         eval "`dircolors -b`"
     fi
-    # alias ls='ls --color=auto'
+    # 
     alias grepc='grep -n --color=auto'
     export PATH=$PATH:$HOME/.local/etc/mainframe/bin
     alias env-update='source ~/.local/etc/mainframe/dotfiles/.bashrc_once'

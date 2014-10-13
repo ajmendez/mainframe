@@ -38,3 +38,4 @@ fi
 
 
 alias sl='ls'
+alias ls='ls --color=auto'

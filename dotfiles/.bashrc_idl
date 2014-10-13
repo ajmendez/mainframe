@@ -11,6 +11,7 @@ if [ -n "$IDL_DIR" ]; then
     export KCORRECT_DIR=$BASE_DIR/kcorrect
     export RED_DIR=$BASE_DIR/red
     export AMPRO_DIR=$BASE_DIR/ampro
+    export AMPRO_DIR=$BASE_DIR/impro
     export FLOCK_DIR=$HOME/research/wiseredshift/flock
     export MANGLE_DIR=$IDLUTILS_DIR/src/mangle2.2/
     
@@ -19,8 +20,13 @@ if [ -n "$IDL_DIR" ]; then
     export IDL_PATH=+$KCORRECT_DIR/pro:$IDL_PATH
     export IDL_PATH=+$RED_DIR:$IDL_PATH
     export IDL_PATH=+$AMPRO_DIR/pro:$IDL_PATH
+    export IDL_PATH=+$IMPRO_DIR/pro:$IDL_PATH
     export IDL_PATH=+$FLOCK_DIR/pro:$IDL_PATH
-    
+	
+	export PATH=$KCORRECT_DIR/bin:$PATH
     export PATH=$IDLUTILS_DIR/bin:$PATH
     export PATH=$PATH:$MANGLE_DIR/bin
+	
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$KCORRECT_DIR/lib
+	
 fi
