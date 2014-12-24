@@ -3,7 +3,9 @@
 
 
 # set the default -- can be specified earlier
-[ !"$IDL_DIR" ] && export IDL_DIR=/usr/site/idl
+# [ !"$IDL_DIR" ] && export IDL_DIR=/usr/site/idl
+export PATH=$PATH:$IDL_DIR/bin
+. /usr/site/idl-8.1/idl/idl81/bin/idl_setup.bash
 
 if [ -n "$IDL_DIR" ]; then
     export BASE_DIR=$HOME/.local/idl/
@@ -30,3 +32,15 @@ if [ -n "$IDL_DIR" ]; then
 	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$KCORRECT_DIR/lib
 	
 fi
+
+
+
+# Mag phys
+export magphys=$HOME/raid/mass/magphys/magphys
+export USER_FILTERS=$magphys/eg_user_files/filters.dat
+export USER_OBS=$magphys/eg_user_files/observations.dat
+export OPTILIB=$magphys/OptiLIB_cb07.bin
+export OPTILIBIS=$magphys/OptiLIBis_cb07.bin
+export IRLIB=$magphys/InfraredLIB.bin
+# export FILTERS=$magphys/FILTERBIN.RES
+export FILTERS=$magphys/FILTER2.RES

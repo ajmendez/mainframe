@@ -39,3 +39,5 @@ fi
 
 alias sl='ls'
 alias ls='ls --color=auto'
+
+source /usr/site/idl-8.1/idl/idl81/bin/idl_setup.bash
