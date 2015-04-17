@@ -4,8 +4,9 @@
 
 # set the default -- can be specified earlier
 # [ !"$IDL_DIR" ] && export IDL_DIR=/usr/site/idl
-export PATH=$PATH:$IDL_DIR/bin
-. /usr/site/idl-8.1/idl/idl81/bin/idl_setup.bash
+# export PATH=$PATH:$IDL_DIR/bin
+
+# . /usr/site/idl-8.1/idl/idl81/bin/idl_setup.bash
 
 if [ -n "$IDL_DIR" ]; then
     export BASE_DIR=$HOME/.local/idl/

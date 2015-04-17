@@ -40,4 +40,7 @@ fi
 alias sl='ls'
 alias ls='ls --color=auto'
 
-source /usr/site/idl-8.1/idl/idl81/bin/idl_setup.bash
+#source /usr/site/idl-8.1/idl/idl81/bin/idl_setup.bash
+
+export SPS_HOME='/home/ajmendez/raid/sed/fsps/fsps-read-only'
+export PYTHONPATH=/home/ajmendez/raid/sed/cigale/cigale/build/lib:$PYTHONPATH

@@ -63,7 +63,8 @@ alias big='ls -ohS'
 alias new='ls -oht'
 alias p='python'
 alias ip='ipython'
-alias notebook="ipython notebook --pprint --automagic --pylab=inline --color-info"
+# alias notebook="ipython notebook --pprint --automagic --pylab=inline --color-info"
+alias notebook="ipython notebook --automagic --pylab=inline --color-info"
 alias o='open'
 
 # if [ !"`which mate 2>/dev/null`" ]; then

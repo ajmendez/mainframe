@@ -18,12 +18,15 @@ try:
     import rlcompleter
     import atexit
     import os # keep this around
+    import sys
     
     # add some nice thing
     import numpy as np
     np.set_printoptions(precision=4, suppress=True)
     
-    from pysurvey import util 
+    if sys.version_info[0] < 3:
+      from pysurvey import util 
+    
 except (ImportError, NameError) as e:
     print('Error: %s'%e)
     print("Python shell enhancement modules not available.")
