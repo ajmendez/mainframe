@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# pass it in a directory, get a movie with the directoryname.mp4
+
+DIRNAME="$1"
+FRAMERATE="${2-5}"
+# FFMPEG=avconv
+FFMPEG=ffmpeg
+ENCODER=libx264
+
+
+
+if [ -z "$DIRNAME" ]; then
+    echo "$(basename $0): Specify Directory to look for images"
+    exit
+fi
+
+PREFIX="$(basename $DIRNAME)"
+OUTFILE="${DIRNAME}/../${PREFIX}_movie.mp4"
+
+for filename in $(ls ${DIRNAME}/*.png); do
+    FRAME="$(basename $filename | cut -d '_' -f 1)"
+    tmp="$(basename ${filename%.png} | rev | cut -d '_' -f 1 | rev)"
+    PATTERN="%0${#tmp}d"
+    break
+done
+
+
+if [ -e "$OUTFILE" ]; then
+    echo " $OUTFILE exists!  Abort!"
+    exit
+fi
+
+
+$FFMPEG -framerate ${FRAMERATE} -i "$DIRNAME/${FRAME}_${PATTERN}.png" \
+       -c:v $ENCODER -r 30 -pix_fmt yuv420p -s 1408x1152 \
+       -threads 0 \
+       $OUTFILE

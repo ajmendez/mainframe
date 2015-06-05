@@ -28,19 +28,28 @@ fi
 
 export PYTHONPATH=$HOME/research/wiseredshift/pysurvey:$PYTHONPATH
 export PYTHONPATH=$HOME/research/wiseredshift/flock:$PYTHONPATH
+export PYTHONPATH=$HOME/research/wiseredshift/zorro:$PYTHONPATH
 export PATH=$HOME/research/wiseredshift/flock/bin:$PATH
+export PATH=$HOME/research/wiseredshift/zorro/bin:$PATH
 export PYTHONPATH=/home/ajmendez/tmp/pip_build/sphere:$PYTHONPATH
 
 
 if [ "$HOST" == "gwln2" ]; then
     export PATH=$HOME/.local/src/mangle2.2/bin:$PATH
+    alias git='/home/mubdi/bin/git'
 fi
-
+if [ "$HOST" == "gwln3" ]; then
+    export PATH=$HOME/.local/src/mangle2.2/bin:$PATH
+    alias git='/home/mubdi/bin/git'
+fi
 
 alias sl='ls'
 alias ls='ls --color=auto'
+alias mate='rmate'
 
 #source /usr/site/idl-8.1/idl/idl81/bin/idl_setup.bash
 
 export SPS_HOME='/home/ajmendez/raid/sed/fsps/fsps-read-only'
 export PYTHONPATH=/home/ajmendez/raid/sed/cigale/cigale/build/lib:$PYTHONPATH
+
+
