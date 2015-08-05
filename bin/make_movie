@@ -7,7 +7,8 @@ FRAMERATE="${2-5}"
 # FFMPEG=avconv
 FFMPEG=ffmpeg
 ENCODER=libx264
-
+SIZE=1408x1152
+# SIZE=1217x914
 
 
 if [ -z "$DIRNAME" ]; then
@@ -31,8 +32,8 @@ if [ -e "$OUTFILE" ]; then
     exit
 fi
 
-
+#-r 30 \
 $FFMPEG -framerate ${FRAMERATE} -i "$DIRNAME/${FRAME}_${PATTERN}.png" \
-       -c:v $ENCODER -r 30 -pix_fmt yuv420p -s 1408x1152 \
+       -c:v $ENCODER -pix_fmt yuv420p -s $SIZE \
        -threads 0 \
        $OUTFILE

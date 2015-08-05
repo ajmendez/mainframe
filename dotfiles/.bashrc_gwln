@@ -5,13 +5,24 @@
 export IDL_DIR=/usr/site/idl
 
 export gflags_path=/home/mubdi/gflags-2.0/
-export WIZARD_DIR="$HOME/research/wiseredshift/wizard2/"
-export PATH=/home/mubdi/bin:/home/mubdi/opt/epd-7.3-2/bin:$PATH
+export WIZARD_DIR="$HOME/research/wiseredshift/wizard2"
+
+# Old 2.7
+# export PATH=/home/mubdi/bin:/home/mubdi/opt/epd-7.3-2/bin:$PATH
+
+# Mubdi's 2.7.6
+# export PATH="/home/mubdi/opt/canopy-1.4.1/bin:$PATH"
+# export PYTHONPATH="/home/mubdi/opt/canopy-1.4.1/lib/python2.7/site-packages/:$PYTHONPATH"
+# export PATH="$HOME/.local/anaconda3/bin:$PATH"
+
+# Mendez's 1.5.4 canopy
+VIRTUAL_ENV_DISABLE_PROMPT=1 source $HOME/.local/canopy/User/bin/activate
 
 
 
-export PATH=$HOME/.local/etc/mainframe/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
+
+export PATH=$PATH:$HOME/.local/etc/mainframe/bin
+# export PATH=$HOME/.local/bin:$PATH
 
 
 
@@ -20,26 +31,50 @@ export RMATE_HOST=localhost
 export RMATE_PORT=55500
 
 # add the defualt for pip
+# if [ -x "$PYTHONPATH" ]; then
+#     export PYTHONPATH=$PYTHONPATH:$HOME/.local/lib/python2.7/site-packages/
+# else
+#     export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages/
+# fi
+
+
 if [ -x "$PYTHONPATH" ]; then
-    export PYTHONPATH=$PYTHONPATH:$HOME/.local/lib/python2.7/site-packages/
+    export PYTHONPATH=$HOME/research/wiseredshift/pysurvey:$PYTHONPATH
 else
-    export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages/
+    export PYTHONPATH=$HOME/research/wiseredshift/pysurvey
 fi
 
-export PYTHONPATH=$HOME/research/wiseredshift/pysurvey:$PYTHONPATH
-export PYTHONPATH=$HOME/research/wiseredshift/flock:$PYTHONPATH
-export PYTHONPATH=$HOME/research/wiseredshift/zorro:$PYTHONPATH
-export PATH=$HOME/research/wiseredshift/flock/bin:$PATH
-export PATH=$HOME/research/wiseredshift/zorro/bin:$PATH
-export PYTHONPATH=/home/ajmendez/tmp/pip_build/sphere:$PYTHONPATH
+export PYTHONPATH=$PYTHONPATH:$WIZARD_DIR
+
+if [[ $HOST == *"gwln"* ]]; then
+    # echo 'other python'
+    export PYTHONPATH=$PYTHONPATH:$HOME/research/wiseredshift/astro-stomp/python/build/lib.linux-x86_64-2.7
+else
+    export PYTHONPATH=$PYTHONPATH:$HOME/research/wiseredshift/stomp/python/build/lib.linux-x86_64-2.7/
+fi
+
+
+export PYTHONPATH=$PYTHONPATH:$HOME/research/wiseredshift/zorro
+export PATH=$PATH:$HOME/research/wiseredshift/zorro/bin
+
+export PYTHONPATH=$PYTHONPATH:$HOME/research/wiseredshift/flock
+export PATH=$PATH:$HOME/research/wiseredshift/flock/bin
+
+# pointer to location of github repository
+export SKYPLOT_DIR=$HOME/research/wiseredshift/skyplot
+export PYTHONPATH=$PYTHONPATH:$SKYPLOT_DIR
+export PATH=$PATH:$SKYPLOT_DIR/bin
+
+
+export PYTHONPATH=$PYTHONPATH:/home/ajmendez/tmp/pip_build/sphere
 
 
 if [ "$HOST" == "gwln2" ]; then
-    export PATH=$HOME/.local/src/mangle2.2/bin:$PATH
+    # export PATH=$HOME/.local/src/mangle2.2/bin:$PATH
     alias git='/home/mubdi/bin/git'
 fi
 if [ "$HOST" == "gwln3" ]; then
-    export PATH=$HOME/.local/src/mangle2.2/bin:$PATH
+    # export PATH=$HOME/.local/src/mangle2.2/bin:$PATH
     alias git='/home/mubdi/bin/git'
 fi
 
@@ -50,6 +85,6 @@ alias mate='rmate'
 #source /usr/site/idl-8.1/idl/idl81/bin/idl_setup.bash
 
 export SPS_HOME='/home/ajmendez/raid/sed/fsps/fsps-read-only'
-export PYTHONPATH=/home/ajmendez/raid/sed/cigale/cigale/build/lib:$PYTHONPATH
+# export PYTHONPATH=/home/ajmendez/raid/sed/cigale/cigale/build/lib:$PYTHONPATH
 
 

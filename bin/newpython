@@ -1,2 +1,2 @@
-export PATH="/home/mubdi/opt/canopy-1.4.1/bin:$PATH"
-export PYTHONPATH="/home/mubdi/opt/canopy-1.4.1/lib/python2.7/site-packages/:$PYTHONPATH"
+# export PATH="/home/mubdi/opt/canopy-1.4.1/bin:$PATH"
+# export PYTHONPATH="/home/mubdi/opt/canopy-1.4.1/lib/python2.7/site-packages/:$PYTHONPATH"

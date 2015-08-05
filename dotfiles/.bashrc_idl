@@ -26,8 +26,8 @@ if [ -n "$IDL_DIR" ]; then
     export IDL_PATH=+$IMPRO_DIR/pro:$IDL_PATH
     export IDL_PATH=+$FLOCK_DIR/pro:$IDL_PATH
 	
-	export PATH=$KCORRECT_DIR/bin:$PATH
-    export PATH=$IDLUTILS_DIR/bin:$PATH
+	export PATH=$PATH:$KCORRECT_DIR/bin
+    export PATH=$PATH:$IDLUTILS_DIR/bin
     export PATH=$PATH:$MANGLE_DIR/bin
 	
 	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$KCORRECT_DIR/lib
