@@ -1,14 +1,20 @@
 #!/bin/bash
 
 # pass it in a directory, get a movie with the directoryname.mp4
+# defaults to 24 fps now
+
 
 DIRNAME="$1"
-FRAMERATE="${2-5}"
+FRAMERATE="${2-24}" 
+SIZE="${3-1408x1152}"
+TAG="${4-movie}"
 # FFMPEG=avconv
 FFMPEG=ffmpeg
 ENCODER=libx264
-SIZE=1408x1152
-# SIZE=1217x914
+
+# SIZE=2190x1640
+
+
 
 
 if [ -z "$DIRNAME" ]; then
@@ -17,7 +23,7 @@ if [ -z "$DIRNAME" ]; then
 fi
 
 PREFIX="$(basename $DIRNAME)"
-OUTFILE="${DIRNAME}/../${PREFIX}_movie.mp4"
+OUTFILE="${DIRNAME}/../${PREFIX}_$TAG.mp4"
 
 for filename in $(ls ${DIRNAME}/*.png); do
     FRAME="$(basename $filename | cut -d '_' -f 1)"

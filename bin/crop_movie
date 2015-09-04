@@ -1,0 +1,76 @@
+#!/bin/bash
+
+# pass it in a directory, get a movie with the directoryname.mp4
+
+DIRNAME="$1"
+PARAMS="$2"
+SUFFIX="${3-crop}"
+
+
+CONVERT=convert
+
+
+if [ -z "$DIRNAME" ]; then
+    echo "$(basename $0): Specify Directory to look for images"
+    exit
+fi
+
+if [ -z "$PARAMS" ]; then
+    echo "$(basename $0): Specify crop command {width}x{height}-{xclip}-{yclip}"
+    
+    # print it for use
+    for filename in $(ls ${DIRNAME}/*.png); do
+        $CONVERT $filename -print "  $(basename $filename) WxH: %wx%h\n" /dev/null
+        break
+    done
+    
+    exit
+fi
+
+PREFIX="$(basename $DIRNAME)"
+OUTDIR="${DIRNAME}/../${PREFIX}.${SUFFIX}"
+
+
+if [ ! -d "$OUTDIR" ]; then
+    mkdir -p "$OUTDIR"
+fi
+OUTDIR="$(readlink -e $OUTDIR)"
+
+
+
+
+# for filename in $(ls ${DIRNAME}/*.png); do
+#     FRAME="$OUTDIR/$(basename $filename)"
+#     if [ -e "$FRAME" ]; then
+#         echo "   File exists: $FRAME skipping..."
+#         continue
+#     fi
+#     $CONVERT -crop $PARAMS $filename $FRAME
+#     echo -n '.'
+# done
+
+
+crop() {
+    filename=$1
+    outfilename="$OUTDIR/$(basename $filename)"
+    if [ -e "$outfilename" ]; then
+        echo "   File exists: $outfilename skipping..."
+    else
+        $CONVERT -limit thread 4 -crop $PARAMS $filename $outfilename
+    fi
+    echo -n '.'
+
+}
+export CONVERT
+export PARAMS
+export OUTDIR
+export -f crop
+
+
+pushd $DIRNAME > /dev/null
+ls $(readlink -e "$DIRNAME/*.png") | parallel -j 40 crop {}
+popd $DIRNAME > /dev/null
+
+
+
+
